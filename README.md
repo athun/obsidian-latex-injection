@@ -38,12 +38,12 @@ is rendered as follows:
  - ImageMagick: use your OS's native package manager (e.g. `apt install imagemagick` on Ubuntu) or follow the instructions on https://imagemagick.org/script/download.php
 
 
-### 2. install this plugin
+### 2. Install this plugin
 
-Download the files of this repo and place them in `<path_to_your_vault>/.obsidian/plugins/obsidian-tikz-renderer`. Once that is done, go to the _Community plugins_ section in the Obsidian settings and click on the _Reload plugins_ button appearing besides the _Installed plugins_ section. Then enable the plugin as you would any other.
+Download the files of this repo and place them in `<path_to_your_vault>/.obsidian/plugins/obsidian-latex-injection`. Once that is done, go to the _Community plugins_ section in the Obsidian settings and click on the _Reload plugins_ button appearing besides the _Installed plugins_ section. Then enable the plugin as you would any other.
 
 
-### 3. Set the latex command correctly
+### 3. Set the LaTeX command correctly
 
 Go to the settings of the LaTeX Injection plugin and check if the render command is correct.
 
@@ -57,12 +57,12 @@ Go to the settings of the LaTeX Injection plugin and check if the render command
 
 **`Error: Command failed: pdflatex (...)`** This means either `pdflatex` failed to compile the LaTeX code or the image conversion failed. You could test your LaTeX code seperately (e.g. by running `pdflatex` directly or using an TeXstudio) or check if the image conversion method is working correctly. The standard `convert` has a security policy issue that causes it to fail, and a resolution can be found in [this StackExchange answer](https://stackoverflow.com/a/59193253/21379986).
 
-**`Error: ENOENT: no such file or directory`** Make sure the image conversion creates `output.png` from `input.pdf`.
+**`Error: ENOENT: no such file or directory (...)`** Make sure the image conversion creates `output.png` from `input.pdf`.
 
 
 ## Limitations
 
-**LaTeX blocks don't resize** because the plugin just adds the PNG image. The alternative is to rely on `pdf2svg` and embed some SVG code, but each such SVG code creates a `<g>` group, so when you try to render multiple blocks this way it causes a conflict (since for some reason `<g>` declarations are shared among all `<svg>` blocks).
+**LaTeX blocks don't resize** because the plugin just adds the PNG image. The alternative would be to rely on `pdf2svg` and embed the SVG code, but each such SVG code creates `<g>` groups, so when you try to render multiple blocks this way it causes a conflict (since for some reason `<g>` declarations are shared among all `<svg>` blocks).
 
 There are two work-arounds: output larger image files during the conversion process (e.g. using `-density 300` or greater as a `convert` parameter) or adding `\usepackage{scalefnt}` to the LaTeX preamble and inserting `\scalefont{2}` before the rest of the LaTeX code block.
 
@@ -71,7 +71,3 @@ There are two work-arounds: output larger image files during the conversion proc
 
 I'm not sure which license the [original work](https://github.com/thequilo/obsidian-tikz-renderer) falls under, so I can't safely assign a license.
 
-
-## Buy me a coffee
-
-If you spot me in Amsterdam feel free to give me a coffee :grin:
