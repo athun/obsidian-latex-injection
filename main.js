@@ -3016,7 +3016,7 @@ var MyPlugin = class extends import_obsidian.Plugin {
     });
   }
   renderTikz2SVG(source) {
-    const latex_source = `\\documentclass[tikz]{standalone}
+    const latex_source = `\\documentclass{standalone}
 %\\usepackage{tikz}
 %\\usepackage{tikz-cd}
 %\\usetikzlibrary{shapes,arrows,positioning,decorations,decorations.pathreplacing,quotes,angles}
